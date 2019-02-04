@@ -339,7 +339,8 @@ class NNTrainer:
                     self.optimizer.zero_grad()
                     loss.backward()
                     # Accumulate gradients
-                    self.optimizer.aggregate_grads(batch_size=inputs.size(0))
+                    if hasattr(self.optimizer, "aggregate_grads"):
+                        self.optimizer.aggregate_grads(batch_size=inputs.size(0))
                     self.probes_manager.add_data(probe_loc="post_backward_pre_optim_step",
                                                  weights_grad=self.weights_grad_lst(),
                                                  weights=self.weights_lst())

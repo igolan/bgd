@@ -108,4 +108,5 @@ class BGD(Optimizer):
             mean.add_(-std.pow(2).mul(e_grad).mul(self.mean_eta))
             sqrt_term = torch.sqrt(e_grad_eps.mul(std).div(2).pow(2).add(1)).mul(std)
             std.copy_(sqrt_term.add(-e_grad_eps.mul(std.pow(2)).div(2)))
+        self.randomize_weights(force_std=0)
         self._init_accumulators()
