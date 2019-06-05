@@ -80,7 +80,7 @@ def init_lin_xavier(model, logger=None):
     for m in model.modules():
         if isinstance(m, nn.Linear):
             layers_initialized += 1
-            torch.nn.init.xavier_normal(m.weight.data)
+            torch.nn.init.xavier_normal_(m.weight.data)
     logger.info("Initialized " + str(layers_initialized) + " linear layers using xavier")
 
 

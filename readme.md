@@ -78,17 +78,16 @@ When using BGD, the main hyper-parameters which need adjustment are:
 * Initialization scheme (usually He/Xavier initialization) - BGD intialize the mean parameter using the initialization weights. Different initialization schemes might affect performance.  
 Examples for hyper-parameters:
 
-| Neytwork                                        | STD init | eta | 
-| -------------                                   | -------- | --- |
-| Fully-connected, 2 hidden layers of width 200   | 0.06     | 1   |
-| Fully-connected, 2 hidden layers of width 400   | 0.05     | 1   |
-| Fully-connected, 2 hidden layers of width 800   | 0.05     | 1   |
-| Fully-connected, 2 hidden layers of width 1200  | 0.04     | 1   |
-| Fully-connected, 2 hidden layers of width 2000  | 0.015    | 1   |
-| VGG11-like, with Batch-Norm                     | 0.011    | 8   |
-| VGG11-like, without Batch-Norm                  | 0.015    | 10  |
-
-
+| Neytwork                                                        | STD init | eta | 
+| -------------                                                   | -------- | --- |
+| Permuted MNIST, Fully-connected, 2 hidden layers of width 200   | 0.06     | 1   |
+| Permuted MNIST, Fully-connected, 2 hidden layers of width 400   | 0.05     | 1   |
+| Split MNIST,    Fully-connected, 2 hidden layers of width 400   | 0.017    | 1   |
+| Permuted MNIST, Fully-connected, 2 hidden layers of width 800   | 0.05     | 1   |
+| Permuted MNIST, Fully-connected, 2 hidden layers of width 1200  | 0.04     | 1   |
+| Permuted MNIST, Fully-connected, 2 hidden layers of width 2000  | 0.015    | 1   |
+| CIFAR10 classification, VGG11-like, with Batch-Norm             | 0.011    | 8   |
+| CIFAR10 classification, VGG11-like, without Batch-Norm          | 0.015    | 10  |
 
 
 ## Requirements

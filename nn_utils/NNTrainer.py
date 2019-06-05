@@ -317,7 +317,9 @@ class NNTrainer:
                     # Use labels trick
                     if k == 0:
                         # We do so only when k==0 (first MC iteration) because we don't want to check the unique labels
-                        #  twice (we assign the labels inplace)
+                        #   twice (we assign the labels inplace)
+                        # Thus, this check for k==0 is only for algorithms with MonteCarlo iterations, other algorithms
+                        #   should just apply the labels trick every iteration.
                         # Get current batch labels (and sort them for reassignment)
                         unq_lbls = labels.unique().sort()[0]
                         # Assign new labels (0,1 ...)

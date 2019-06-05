@@ -802,6 +802,9 @@ def ds_padded_permuted_mnist_offline(**kwargs):
 def ds_padded_cont_permuted_mnist(**kwargs):
     """
     Continuous Permuted MNIST dataset, padded to 32x32.
+    Notice that this dataloader is aware to the epoch number, therefore if the training is loaded from a checkpoint
+        adjustments might be needed. 
+    Access dataset.tasks_probs_over_iterations to see the tasks probabilities for each iteration.
     :param num_epochs: Number of epochs for the training (since it builds distribution over iterations,
                             it needs this information in advance)
     :param iterations_per_virtual_epc: In continuous task-agnostic learning, the notion of epoch does not exists,
@@ -813,6 +816,10 @@ def ds_padded_cont_permuted_mnist(**kwargs):
     :param permutations: The permutations which will be used (first task is always the original MNIST).
     :param batch_size: Batch size.
     :param num_workers: Num workers.
+    :return: A tuple of (train_loaders, test_loaders). train_loaders is a list of 1 data loader - it loads the
+                permuted MNIST dataset continuously as described in the paper. test_loaders is a list of 1+permutations
+                data loaders, one for each dataset.
+
     """
     dataset = [DatasetsLoaders("CONTPERMUTEDPADDEDMNIST", batch_size=kwargs.get("batch_size", 128),
                                num_workers=kwargs.get("num_workers", 1),
