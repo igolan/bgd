@@ -80,6 +80,11 @@ def mnist_simple_net_200width_domainlearning_784input_10cls_1ds(**kwargs):
                      num_of_classes=10, **kwargs)
 
 
+def mnist_simple_net_2000width_domainlearning_784input_10cls_1ds(**kwargs):
+    return FC2Layers(input_size=784, layer1_width=2000, layer2_width=2000, num_of_datasets=1,
+                     num_of_classes=10, **kwargs)
+
+
 def mnist_simple_net_1000width_classlearning_1024input_100cls_1ds(**kwargs):
     return FC2Layers(input_size=1024, layer1_width=1000, layer2_width=1000, num_of_datasets=1,
                      num_of_classes=100, **kwargs)
